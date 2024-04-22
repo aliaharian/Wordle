@@ -27,6 +27,22 @@ const files: File = {
             },
             {
               name: "File4.txt",
+              children: [
+                {
+                  name: "File3.txt",
+                  children: [
+                    {
+                      name: "File3.txt",
+                    },
+                    {
+                      name: "File4.txt",
+                    },
+                  ],
+                },
+                {
+                  name: "File4.txt",
+                },
+              ],
             },
           ],
         },

@@ -6,12 +6,15 @@ const Entry = ({ files, depth }: { files: File; depth: number }) => {
   console.log("files", files);
   return (
     <div style={{ borderLeft: "2px solid black" }}>
-      <p style={{ marginLeft: 8 }}>{files.name}</p>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ height: 1, width: 25, background: "black" }} />
+        <p style={{ marginLeft: 2 }}>{files.name}</p>
+      </div>
       {files.children?.map((item, index) => {
         return (
           <div style={{ display: "flex", alignItems: "center" }}>
             <div
-              style={{ height: 1, width: depth * 10, background: "black" }}
+              style={{ height: 1, width: 25, background: "black" }}
             />
             <Entry depth={depth + 1} files={item} key={index} />
           </div>
@@ -32,12 +35,13 @@ const FileTree = () => {
       }}
     >
       <h1 style={{ fontSize: 30 }}>file tree</h1>
-      <div style={{ borderLeft: "1px solid black" }}>
+      <div>
         <p>{filesList.name}</p>
         {filesList.children?.map((item, index) => {
           return (
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div style={{ height: 1, width: 10, background: "black" }} />
+            <div
+              style={{ display: "flex", alignItems: "center", marginLeft: 15 }}
+            >
               <Entry depth={1} files={item} key={index} />
             </div>
           );
